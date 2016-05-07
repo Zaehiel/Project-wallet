@@ -204,6 +204,12 @@
 				btn.setAttribute('onclick', 'javascript:Auth.instance.deleteItem('+counter+');');
 				btn.innerHTML = '<i class="fa fa-minus-circle" aria-hidden="true"></i>';
 				
+				var btn2 = document.createElement('button');
+				btn2.className = 'btn btn-default mod-btn';
+				btn2.setAttribute('onclick', 'javascript:Auth.instance.deleteItem('+counter+');');
+				//hetkel töötab muutmise nupp kustutamisena
+				btn2.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>';
+				
 
 				//btn.addEventListener('click', that.deleteItem.bind(that));
 				//only works on  pc chrome... f you ff and f you safari get updated zzzz
@@ -212,6 +218,7 @@
 				li.appendChild(span2);
 				
 				li.appendChild(btn);
+				li.appendChild(btn2);
 				_('.list-of-jars').appendChild(li);
 				counter++;
 			});
