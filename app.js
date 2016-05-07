@@ -11,6 +11,11 @@
 	   console.log('auth töös');
 	   Auth.instance = this;
 	   
+	   //CACHE
+       this.cache = window.applicationCache;
+       this.startCacheListeners();
+
+	   
 	   this.data = [];
 	   this.spent = 0;
 	   
@@ -253,7 +258,19 @@
 			_('#submit').addEventListener('click', this.addItem.bind(this));
 			
 			_('#editBudget').addEventListener('click', this.editBudget.bind(this));
-		 }
+		 },
+		 
+		 startCacheListeners: function(){
+            window.applicationCache.addEventListener('updateready',function(){
+                window.applicationCache.swapCache();
+                console.log('swap cache has been called');
+            },false);
+
+            setInterval(function(){
+                Auth.instance.cache.update();
+                //kontrollib cache'i iga 10s tagant
+            }, 10000);
+        }
 	   
 	   
 	};
