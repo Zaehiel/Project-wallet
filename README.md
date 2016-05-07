@@ -1,8 +1,17 @@
 # Project-wallet
 Elar Huik, Ester Pukk
 
-_eesmärk (3-4 lauset, mis probleemi rakendus lahendab)_
-_funktsionaalsuse loetelu prioriteedi järjekorras_
+Rakendus oli loodud selleks, et kasutajal oleks ülevaade oma rahaliste vahendite üle.
+Näiteks kuu või nädala eelarve on 100€. Iga väljaminekuga on võimalik kasutajal luua väljaminek (nt lõuna kohvikus) ja kirjutada summa.
+See summa arvutatakse maha eelarvest nii, et kasutaja näeb kui palju tal mingis ajaperioodis raha kulub ja kui palju tal on võimalik veel kulutada, ilma et ta ei läheks üle endale püstitatud eelarvest.
+
+Funktsionaalsuste loetelu
++ Profiili loomine: eelarve määramine ja muutmine
++ Väljamineku lisamine
++ Väljamineku kustutamine
++ Väljamineku muutmine
++ ...
+
 _andmete liikumise skeem loetava pildina_
 
 + Need ChartJs
