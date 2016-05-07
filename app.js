@@ -202,7 +202,7 @@
 				var btn = document.createElement('button');
 				btn.className = 'btn btn-default del-btn';
 				btn.setAttribute('onclick', 'javascript:Auth.instance.deleteItem('+counter+');');
-				btn.innerHTML = 'del';
+				btn.innerHTML = '<i class="fa fa-minus-circle" aria-hidden="true"></i>';
 				
 
 				//btn.addEventListener('click', that.deleteItem.bind(that));

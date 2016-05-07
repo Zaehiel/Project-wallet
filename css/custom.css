@@ -77,8 +77,15 @@ html {
 	position:absolute;
 	top:0px;
 	right:0px;
+	height:100%;
+	background-color:#ff3b30;
+	color:#ffffff;
+	border:0px;
 }
-
+.del-btn:hover{
+	color:#ff3b30;
+	background-color:#ffffff;
+}
 .title{
 	font-weight:bold;
 	font-size: 20px;
@@ -95,3 +102,4 @@ html {
 	font-weight: bold;
 	
 }
+
