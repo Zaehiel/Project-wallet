@@ -10,14 +10,9 @@ Funktsionaalsuste loetelu
 + Väljamineku lisamine
 + Väljamineku kustutamine
 + Väljamineku muutmine
-+ ...
++ Andmete laadimine serverist
++ Andmete laadimine serverisse
 
 _andmete liikumise skeem loetava pildina_
 
-+ Need ChartJs
-+ Serve side storage
-+ Check if online
-+ If online sync with database
-+ Delete All btn
-+ Type of expense (add)
-+ Store data with specified userProfile name (step 1 of setup)
+
