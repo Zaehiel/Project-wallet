@@ -206,7 +206,7 @@
 				
 				var btn2 = document.createElement('button');
 				btn2.className = 'btn btn-default mod-btn';
-				btn2.setAttribute('onclick', 'javascript:Auth.instance.deleteItem('+counter+');');
+				btn2.setAttribute('onclick', 'javascript:Auth.instance.modItem('+counter+');');
 				//hetkel töötab muutmise nupp kustutamisena
 				btn2.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>';
 				
@@ -257,7 +257,6 @@
 			this.drawHistory();
 			this.calculate();
 		},
-		
 		modItem: function(id){
 			var showId = id+1;
 			$('#modal-title').text("Edit entry: "+showId);
@@ -326,7 +325,6 @@
 				return false;
 			}
 		},
-		
 		bindEvents: function(){
 			console.log('bind launched');
 			_('#initialize').addEventListener('click', this.initAuth.bind(this));
