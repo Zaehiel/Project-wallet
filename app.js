@@ -207,7 +207,6 @@
 				var btn2 = document.createElement('button');
 				btn2.className = 'btn btn-default mod-btn';
 				btn2.setAttribute('onclick', 'javascript:Auth.instance.modItem('+counter+');');
-				//hetkel töötab muutmise nupp kustutamisena
 				btn2.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>';
 				
 
