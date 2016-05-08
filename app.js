@@ -28,7 +28,10 @@
 		initialize: function(){
 			console.log('initialized');
 			this.bindEvents();
-			if(this.checkAuth() === 'noUsername'){
+			this.UIcases();
+		},
+		UIcases: function(){
+						if(this.checkAuth() === 'noUsername'){
 				_('#disclaimer').className = _('#disclaimer').className.replace('disNone', 'disBlo');
 				_('#create').className = _('#create').className.replace('disNone', 'disBlo');
 
@@ -66,6 +69,7 @@
 				console.log(profilename);
 				this.checkUser(profilename);
 				localStorage.setItem('userName', profilename);
+				this.checkUser();
 				this.initialize();
 			} else {
 				/*show error*/
@@ -112,7 +116,8 @@
 			if(localStorage.budgetAmount){_('#currentBudget').value = localStorage.budgetAmount}
 		},
 		checkUser: function(profilename){
-			/**/
+			console.log('checking user');
+			this.ajax('load');
 		},
 		addItem: function(){
 			var title = _('#expenseName').value;
@@ -363,6 +368,7 @@
 					  localStorage.data = JSON.parse(data).data;
 					  Auth.instance.drawHistory();
 					  Auth.instance.calculate(); 
+					  Auth.instance.UIcases();
 					},
 					
 				});
