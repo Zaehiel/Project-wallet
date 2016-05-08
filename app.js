@@ -257,6 +257,76 @@
 			this.drawHistory();
 			this.calculate();
 		},
+		
+		modItem: function(id){
+			var showId = id+1;
+			$('#modal-title').text("Edit entry: "+showId);
+			/*same as above*/
+			if(Auth.instance.data < 1){
+				console.log('init mod action: '+ Auth.instance.data);
+				
+				var array2 = JSON.parse(localStorage.data);
+					array2.forEach(function(data2){
+						var load2 = new Data(data2.title, data2.amount, data2.date);
+						Auth.instance.data.push(load2);
+					});
+	
+				console.log('end mod action:');
+				console.log(Auth.instance.data);
+			}
+			var expN = this.data[id].title;
+			var amt = this.data[id].amount;
+			$('#expenseName2').val(expN);
+			$('#amount2').val(amt);
+			$('#modModal').modal('show'); 
+			$('#saveMod').on('click', function(){
+				var check = Auth.instance.checkFields();
+				if(check){
+					var newExpN = $('#expenseName2').val();
+					var newAmt = $('#amount2').val();
+					/*muudan array sees olevaid andmeid*/
+					console.log(Auth.instance.data[id]['title']);
+					Auth.instance.data[id]['title'] = newExpN;
+					console.log(Auth.instance.data[id]['title']);
+					Auth.instance.data[id]['amount'] = newAmt;
+					/*uuendan localstorage*/
+					localStorage.data = JSON.stringify(Auth.instance.data);
+					/*renderdan uuesti ja peidan modali*/
+					Auth.instance.drawHistory();
+					Auth.instance.calculate();
+					$('#modModal').modal('hide');
+					/*eemaldan kuulari, muidu tekib olukord, kus
+					järjestikusel muutmisel muudatakse mitme id
+					sisu*/
+					$('#saveMod').off('click');
+				}
+			});
+		},
+		checkFields: function(){
+			var title = _('#expenseName2').value;
+			var amount = _('#amount2').value;
+			
+			if(title.length > 0 && amount > 0){
+					_('#expenseName2').parentNode.className = _('#expenseName2').parentNode.className.replace('has-warning', '');
+					_('#amount2').parentNode.className = _('#amount2').parentNode.className.replace('has-warning', '');
+					return true;
+			} else if(title.length > 0 && amount < 1){
+				_('#amount2').parentNode.className = _('#amount2').parentNode.className+' has-warning';
+				_('#expenseName2').parentNode.className = _('#expenseName2').parentNode.className.replace('has-warning', '');
+				return false;
+			} else if(title.length < 1 && amount > 0){
+				_('#expenseName2').parentNode.className = _('#expenseName2').parentNode.className+' has-warning';
+				_('#amount2').parentNode.className = _('#amount').parentNode.className.replace('has-warning', '');
+				return false;
+			} else if(title.length < 1){
+				_('#expenseName2').parentNode.className = _('#expenseName2').parentNode.className+' has-warning';
+				return false;
+			} else if(amount < 1){
+				_('#amount2').parentNode.className = _('#amount2').parentNode.className+' has-warning';
+				return false;
+			}
+		},
+		
 		bindEvents: function(){
 			console.log('bind launched');
 			_('#initialize').addEventListener('click', this.initAuth.bind(this));
