@@ -105,6 +105,20 @@ html {
 	background-color:#ffffff;
 }
 
+.btn-success{
+	background-color:#3088f4;
+	color:#ffffff;
+	border:0px;
+	width:30%;
+}
+
+.btn-success:hover{
+	background-color:#39c9ff;
+	color:#ffffff;
+	border:0px;
+	width:30%;
+}
+
 .title{
 	font-weight:bold;
 	font-size: 20px;

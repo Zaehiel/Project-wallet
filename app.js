@@ -327,11 +327,11 @@
 		bindEvents: function(){
 			console.log('bind launched');
 			_('#initialize').addEventListener('click', this.initAuth.bind(this));
-			_('#setBudget').addEventListener('click', this.setBudget.bind(this));
-			
-			_('#submit').addEventListener('click', this.addItem.bind(this));
-			
+			_('#setBudget').addEventListener('click', this.setBudget.bind(this));			
+			_('#submit').addEventListener('click', this.addItem.bind(this));			
 			_('#editBudget').addEventListener('click', this.editBudget.bind(this));
+			_('#load').addEventListener('click', this.ajax('load'));
+			_('#sync').addEventListener('click', this.ajax('sync'));
 		 },
 		 
 		 startCacheListeners: function(){
