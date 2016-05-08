@@ -344,7 +344,46 @@
                 Auth.instance.cache.update();
                 //kontrollib cache'i iga 10s tagant
             }, 10000);
-        }
+        },
+		ajax: function(todo){
+			var query, user, json, budget;
+			if(todo == 'load'){
+				query = 'load';
+				user = localStorage.userName;
+				$.ajax({
+					url: 'ajax.php',
+					method: "GET",
+					data: { query: query, username: user},
+					contentType: 'application/json; charset=utf-8',
+					success : function(data){
+					  
+					  console.log(JSON.parse(data).budget);
+					  console.log(JSON.parse(data).data);
+					  localStorage.budgetAmount = JSON.parse(data).budget;
+					  localStorage.data = JSON.parse(data).data;
+					  Auth.instance.drawHistory();
+					  Auth.instance.calculate(); 
+					},
+					
+				});
+			} else if(todo == 'sync'){
+				query = 'sync';
+				user = localStorage.userName;
+				json = localStorage.data;
+				budget = localStorage.budgetAmount;
+				$.ajax({
+					url: 'ajax.php',
+					method: "GET",
+					data: { query: query, username: user, data: json, budget: budget},
+					contentType: 'application/json; charset=utf-8',
+					success : function(data){
+					  console.log(data);
+					},
+					
+				});
+			}
+
+		}
 	   
 	   
 	};
