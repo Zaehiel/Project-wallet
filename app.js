@@ -167,6 +167,7 @@
 				}
 				
 			}
+			this.ajax('sync');
 			
 		},
 		calculate: function(){
@@ -260,6 +261,7 @@
 			/*renderin kogu listi uuesti, et saada uued ID'd, muidu asi breakib ja ei kustuta õigeid asju*/
 			this.drawHistory();
 			this.calculate();
+			this.ajax('sync');
 		},
 		modItem: function(id){
 			var showId = id+1;
@@ -302,6 +304,7 @@
 					järjestikusel muutmisel muudatakse mitme id
 					sisu*/
 					$('#saveMod').off('click');
+					Auth.instance.ajax('sync');
 				}
 			});
 		},
