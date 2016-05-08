@@ -13,6 +13,7 @@ Funktsionaalsuste loetelu
 + Andmete laadimine serverist
 + Andmete laadimine serverisse
 
-_andmete liikumise skeem loetava pildina_
-
-
+Andmete liikumise skeem loetava pildina:
+ 
+![alt text](http://ehco.planet.ee/end/explain.png "Wallet")
+[Andmete liikumise skeem loetava pildina](http://ehco.planet.ee/end/explain.png)
