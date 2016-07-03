@@ -85,7 +85,7 @@
 	
 <main role="main">
     <div id="list" class="col-lg-12 col-sm-12 col-xs-12 noPad">
-      <h2 class="center">Overview</h2>
+      <!--<h2 class="center">Overview</h2>-->
       <div class="row">
 		<div class="col-lg-3 col-sm-3"></div>
 		<div class="col-lg-6 col-sm-6 col-xs-12">
@@ -98,24 +98,57 @@
 	
 	<div id="manage" class="col-lg-12 col-sm-12 col-xs-12 noPad">
 		
-		<h2 class="center">Edit budget</h2>
+		<h2 class="center">Settings</h2>
 		<div class="row">
-			<div class="col-lg-3 col-sm-3 col-xs-2 "></div>
-			<div class="col-lg-6 col-sm-6 col-xs-8">
-				<div class="input-group">
+			<div class="col-lg-3 col-sm-3 col-xs-1"></div>
+			<div class="col-lg-6 col-sm-6 col-xs-10">
+				<label for="budgetGroup">Current budget & filters</label>
+				<div id="budgetGroup" class="input-group">
 				  <input id="currentBudget" type="number" class="form-control" placeholder="Enter new budget amount">
 				  <span class="input-group-btn">
 					<button id="editBudget" class="btn btn-default" type="button">Set</button>
 				  </span>				  
 				</div>
-				<br/>
-				<h2 align="center">Load and sync</h2><br/>
+
+					<div id="filtersGroup" class="checkbox">
+						<label class="ios-label">
+							<input type="checkbox" class="" style="display:none;">
+							<span>Show current month</span>
+							<div class="ios-ui-select">
+								<div class="inner"></div>
+							</div>
+						</label>
+						<label class="ios-label">
+							<input type="checkbox" class="" style="display:none;">
+							<span>Show current month</span>
+							<div class="ios-ui-select checked">
+								<div class="inner"></div>
+							</div>
+						</label>
+						<label class="ios-label">
+							<input type="checkbox" class="" style="display:none;">
+							<span>Show current month</span>
+							<div class="ios-ui-select checked">
+								<div class="inner"></div>
+							</div>
+						</label>
+						<label class="ios-label">
+							<input type="checkbox" class="" style="display:none;">
+							<span>Show current month</span>
+							<div class="ios-ui-select">
+								<div class="inner"></div>
+							</div>
+						</label>
+						
+					</div>
+				
+				<h2 align="center">Manual update</h2>
 				<p align="center">
-				<button id="load" class="btn btn-success" type="button"><i class="fa fa-arrow-down" aria-hidden="true"></i> Load</button>
-				<button id="sync" class="btn btn-success" type="button"><i class="fa fa-refresh" aria-hidden="true"></i> Sync</button>
+				<button id="load" class="btn btn-success btn-lg" type="button"><i class="fa fa-arrow-down" aria-hidden="true"></i> Load</button>
+				<button id="sync" class="btn btn-success btn-lg" type="button"><i class="fa fa-refresh" aria-hidden="true"></i> Sync</button>
 				</p>
 			</div>
-			<div class="col-lg-3 col-sm-3 col-xs-2 "></div>
+			<div class="col-lg-3 col-sm-3 col-xs-1"></div>
 		</div>
 
     </div>
@@ -141,7 +174,7 @@
 							<input type="text" class="form-control" id="expenseName" placeholder="Expense name">
 						  </div>
 						  <div class="form-group">
-							<input type="number" class="form-control" id="amount" placeholder="amount">
+							<input type="number" class="form-control" id="amount" placeholder="Amount">
 						  </div>
 						  <button id="submit" class="btn btn-default btn-lg pull-right">Add</button>
 					  </div>
