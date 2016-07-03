@@ -340,6 +340,7 @@
 			_('#editBudget').addEventListener('click', this.editBudget.bind(this));
 			$('#load').on('click', function(){Auth.instance.ajax('load');});
 			$('#sync').on('click', function(){Auth.instance.ajax('sync');});
+			$('.ios-label input').on('change', function(e){Auth.instance.checkBox(e.currentTarget);});
 		 },
 		 
 		 startCacheListeners: function(){
@@ -392,6 +393,24 @@
 				});
 			}
 
+		},
+		checkBox: function(target){
+			var box = $(target).siblings('div.ios-ui-select');
+			var value;
+			if(box.hasClass('checked')){box.removeClass('checked');value="false";}
+			else {box.addClass('checked');value="true";};
+			this.settings(target.id, value);
+		},
+		settings: function(argument, value){
+			if(argument !== '' && value !== ''){
+				if(!localStorage.argument){
+					localStorage.setItem(argument, value);
+				} else {
+					localStorage.argumen(value);
+				}
+			} else {
+				console.log('no argument');
+			}
 		}
 	   
 	   
